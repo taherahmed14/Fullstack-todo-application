@@ -18,7 +18,14 @@ export const Login = () => {
             })
         })
         const data = await res.json();
-        console.log(data);
+        
+        if(data.user) {
+            localStorage.setItem('token', data.token);
+            window.location.href = "/todo";
+        }
+        else {
+            alert("Please check email and password");
+        }
     }
 
     return (

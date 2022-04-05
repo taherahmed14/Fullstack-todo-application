@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../model/user.model");
+const jwt = require("jsonwebtoken");
 
 router.post("", async(req, res) => {
     const user = await User.findOne({
@@ -9,7 +10,11 @@ router.post("", async(req, res) => {
     });
 
     if(user) {
-        return res.json({ status: "ok" });
+        const token = jwt.sign({
+            username: user.username,
+            email: user.email
+        }, 'doodle');
+        return res.json({ status: "ok", token, user: true });
     }
     else {
         return res.json({ status: "error" });

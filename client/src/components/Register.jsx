@@ -20,7 +20,9 @@ export const Register = () => {
             })
         })
         const data = await res.json();
-        console.log(data);
+        if(data.status === "ok") {
+            window.location.href = "/login";
+        }
     }
 
     return (

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-// import jwt from "jsonwebtoken";
 import jwt_decode from "jwt-decode";
+import { TodoDetails } from "./TodoDetails";
 
 export const Todo = () => {
-
-    const [todo, setTodo] = useState("");
-    const [tempTodo, setTempTodo] = useState("");
+    const [user, setUser] = useState("");
+    const [todo, setTodo] = useState([]);
+    const [todoTask, setTodoTask] = useState("");
+    const [todoTime, setTodoTime] = useState("");
+    const [todoDate, setTodoDate] = useState("");
 
     async function populateTodo() {
         const res = await fetch("http://localhost:4200/todo", {
@@ -16,7 +18,8 @@ export const Todo = () => {
 
         const data = await res.json();
         if(data.status === "ok") {
-            console.log(data);
+            console.log(data.user.username);
+            setUser(data.user.username);
             setTodo(data.todo);
         }
     }
@@ -27,7 +30,7 @@ export const Todo = () => {
         if(token) {
             const decoded = jwt_decode(token);
             console.log(decoded);
-            //const user = jwt.decode(token);
+
             if(!decoded) {
                 localStorage.removeItem('token');
                 window.location.href = '/login';
@@ -41,6 +44,14 @@ export const Todo = () => {
     const handleTodo = async (e) => {
         e.preventDefault();
 
+        let tempTodo = {
+            task: todoTask,
+            current: new Date(),
+            expiry: [todoDate, todoTime],
+            status: false,
+        };
+        let addedTodo = [...todo, tempTodo]
+
         const res = await fetch("http://localhost:4200/todo", {
             method: "POST",
             headers: {
@@ -48,25 +59,34 @@ export const Todo = () => {
                 "x-access-token": localStorage.getItem('token'),
             },
             body: JSON.stringify({
-                todo: tempTodo,
+                todo: addedTodo,
             })
         })
 
         const data = await res.json();
+        alert("Todo added successfully");
     
-        if(data.status === "ok") {
-            setTodo(tempTodo);
-            setTempTodo("");
-        }
+        setTodo(addedTodo);
+        setTodoTask("");
+        setTodoDate("");
+        setTodoTime("");
+        
     }
 
     return(
         <div>
-            <h1>{todo ? todo : "No Todo added"}</h1>
             <form onSubmit={handleTodo}>
-                <input type="text" placeholder="Enter Todo" value={tempTodo} onChange={(e) => setTempTodo(e.target.value)} />
+                <input type="text" placeholder="Enter Todo" onChange={(e) => setTodoTask(e.target.value)} />
+                <input type='time' className="todoTime" onChange={(e) => setTodoTime(e.target.value)} />
+                <input type='date' className="todoTime" onChange={(e) => setTodoDate(e.target.value)} />
                 <input type="submit" value="Submit" />
             </form>
+
+            <ul>
+                {todo.map((el => (
+                    <TodoDetails setTodo={setTodo} todos={todo} todo={el} user={user} key={el._id} />
+                )))}
+            </ul>
         </div>
     )
 };

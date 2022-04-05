@@ -10,12 +10,12 @@ router.get("", async(req, res) => {
         const email = decoded.email;
         const user = await User.findOne({ email: email });
         console.log(user);
-        console.log(user.todo);
+        //console.log(user.todo);
 
-        return res.json({ status: "ok", todo: user.todo });
+        return res.json({ status: "ok", todo: user.todo, user: user });
     }
     catch(e) {
-        res.json({ status: "Invalid Token" });
+        return res.json({ status: "Error" });
     }
 });
 
@@ -30,7 +30,7 @@ router.post("", async(req, res) => {
         return res.json({ status: "ok" });
     }
     catch(e) {
-        res.json({ status: "Invalid Token" });
+        return res.json({ status: "Error" });
     }
 });
 

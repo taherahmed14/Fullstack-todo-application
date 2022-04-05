@@ -4,7 +4,14 @@ const User = new mongoose.Schema({
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    todo: { type: String }
+    todo: [
+        {
+            task: { type: String },
+            current: { type: String },
+            expiry: [{ type: String }],
+            status: { type: Boolean },
+        }
+    ]
 },
 {
     timestamps: true,

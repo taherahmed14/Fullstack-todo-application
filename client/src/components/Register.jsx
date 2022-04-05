@@ -26,7 +26,7 @@ export const Register = () => {
     }
 
     return (
-        <div>
+        <div className="border-4 border-indigo-500/100">
             <h1>Register</h1>
             <form onSubmit={handleRegister}>
                 <input type='text' placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} /> <br />

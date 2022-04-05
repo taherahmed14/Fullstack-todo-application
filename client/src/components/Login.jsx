@@ -38,7 +38,7 @@ export const Login = () => {
                 <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}
                     className="border-0 border-b border-sky-500 focus:outline-0 mt-5 px-8 py-2" /> <br />
                 <input type='submit' value='Login'
-                    className="border-2 border-sky-500 mt-10 px-8 py-2 cursor-pointer hover:bg-sky-500" />
+                    className="border-2 border-sky-500 mt-20 px-8 py-2 cursor-pointer hover:bg-sky-500" />
             </form>
             <Link to={"/register"} className="text-sky-500 hover:text-sky-300">Create account</Link>
         </div>

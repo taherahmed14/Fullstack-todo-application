@@ -49,7 +49,7 @@ export const TodoDetails = ({ setTodo, todos, todo, user }) => {
     };
 
     return (
-        <div className="border-0 border-b border-sky-300 m-auto mt-5 w-96 text-left pb-2">
+        <div className="border-0 border-b border-sky-300 m-auto mt-5 w-80 text-left pb-2">
             <div className="flex">
                 <div className={todo.status ? "completed" : "notCompleted"}>
                     <div>Task - {todo.task}</div>
@@ -59,11 +59,11 @@ export const TodoDetails = ({ setTodo, todos, todo, user }) => {
                 </div>
                 <div className="ml-20">
                     <button onClick={() => {handleCompleted(todo._id)}}>
-                        <img className="h-10 hover:opacity-50"
+                        <img className="h-8 hover:opacity-50"
                             src="https://img.icons8.com/dotty/80/000000/task-completed.png" alt="completed" />
                     </button>
                     <button onClick={() => {handleDelete(todo._id)}}>
-                        <img className="h-9 mb-0.5 hover:opacity-50"
+                        <img className="h-8 mb-0.5 hover:opacity-50"
                             src="https://img.icons8.com/wired/64/000000/filled-trash.png" alt="delete" />
                     </button>
                 </div>

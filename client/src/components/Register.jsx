@@ -22,7 +22,7 @@ export const Register = () => {
         })
         const data = await res.json();
         if(data.status === "ok") {
-            window.location.href = "/login";
+            window.location.href = "/";
         }
     }
 
@@ -39,7 +39,7 @@ export const Register = () => {
                 <input type='submit' value='Register'
                     className="border-2 border-sky-500 mt-10 px-8 py-2 cursor-pointer hover:bg-sky-500" />
             </form>
-            <Link to={"/login"} className="text-sky-500 hover:text-sky-300">Sign in Instead</Link>
+            <Link to={"/"} className="text-sky-500 hover:text-sky-300">Sign in Instead</Link>
         </div>
     )
 };

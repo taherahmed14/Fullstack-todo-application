@@ -49,20 +49,22 @@ export const TodoDetails = ({ setTodo, todos, todo, user }) => {
     };
 
     return (
-        <div>
-            <div className='todo'>
+        <div className="border-0 border-b border-sky-300 m-auto mt-5 w-96 text-left pb-2">
+            <div className="flex">
                 <div className={todo.status ? "completed" : "notCompleted"}>
-                    <div>{todo.task}</div>
-                    <div className="dateandtime">Expiry: {todo.expiry[0]} {todo.expiry[1]}</div>
-                    <div className="dateandtime">Created at: {todo.current}</div>
-                    <div className="dateandtime">Created by: {user}</div>
+                    <div>Task - {todo.task}</div>
+                    <div className="text-xs">Expiry: {todo.expiry[0]} {todo.expiry[1]}</div>
+                    <div className="text-xs">Created at: {todo.current}</div>
+                    <div className="text-xs">Created by: {user}</div>
                 </div>
-                <div>
+                <div className="ml-20">
                     <button onClick={() => {handleCompleted(todo._id)}}>
-                        <img src="https://img.icons8.com/dotty/80/000000/task-completed.png" alt="completed" />
+                        <img className="h-10 hover:opacity-50"
+                            src="https://img.icons8.com/dotty/80/000000/task-completed.png" alt="completed" />
                     </button>
                     <button onClick={() => {handleDelete(todo._id)}}>
-                        <img src="https://img.icons8.com/wired/64/000000/filled-trash.png" alt="delete" />
+                        <img className="h-9 mb-0.5 hover:opacity-50"
+                            src="https://img.icons8.com/wired/64/000000/filled-trash.png" alt="delete" />
                     </button>
                 </div>
             </div>

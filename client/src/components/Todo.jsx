@@ -74,12 +74,16 @@ export const Todo = () => {
     }
 
     return(
-        <div>
+        <div className="shadow-2xl min-w-0 pb-10 m-auto mt-15">
             <form onSubmit={handleTodo}>
-                <input type="text" placeholder="Enter Todo" onChange={(e) => setTodoTask(e.target.value)} />
-                <input type='time' className="todoTime" onChange={(e) => setTodoTime(e.target.value)} />
-                <input type='date' className="todoTime" onChange={(e) => setTodoDate(e.target.value)} />
-                <input type="submit" value="Submit" />
+                <input type="text" placeholder="Enter Todo" onChange={(e) => setTodoTask(e.target.value)}
+                    className="border-0 border-b border-sky-500 focus:outline-0 mt-5 px-8 py-2" /> <br />
+                <input type='time' onChange={(e) => setTodoTime(e.target.value)}
+                    className="border-0 border-b border-sky-500 focus:outline-0 px-5 py-1 cursor-pointer" />
+                <input type='date' onChange={(e) => setTodoDate(e.target.value)}
+                    className="border-0 border-b border-sky-500 focus:outline-0 px-5 py-1 cursor-pointer" />
+                <input type="submit" value="Add"
+                    className="border-2 border-sky-500 mt-10 px-5 py-1 cursor-pointer hover:bg-sky-500" />
             </form>
 
             <ul>

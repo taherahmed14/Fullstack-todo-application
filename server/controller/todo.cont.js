@@ -26,7 +26,7 @@ router.post("", async(req, res) => {
         const email = decoded.email;
         const user = await User.updateOne({ email: email }, { $set: { todo: req.body.todo } });
 
-        return res.json({ status: "ok", todo: user.todo });
+        return res.json({ status: "ok", todo: user.todo, user: user });
     }
     catch(e) {
         return res.json({ status: "Error" });

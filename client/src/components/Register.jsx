@@ -24,6 +24,9 @@ export const Register = () => {
         if(data.status === "ok") {
             window.location.href = "/";
         }
+        else {
+            alert("Please check email and password");
+        }
     }
 
     return (

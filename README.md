@@ -28,12 +28,12 @@
 
 ### Register Page
 
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Home%20page.png?raw=true)
+![](https://github.com/taherahmed14/Fullstack-todo-application/blob/main/Product%20Screenshots/Register_page.png)
 
 ### Login Page
 
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Home%20page.png?raw=true)
+![](https://github.com/taherahmed14/Fullstack-todo-application/blob/main/Product%20Screenshots/Login_page.png)
 
 ### Todo Page
 
-![](https://github.com/m-sehrawat/Adidas-Website-Clone/blob/main/Adidas%20Clone%20Screen%20Shots/Home%20page.png?raw=true)
+![](https://github.com/taherahmed14/Fullstack-todo-application/blob/main/Product%20Screenshots/Todo_page.png)
